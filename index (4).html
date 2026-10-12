@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <base target="_top">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>KKP SME FREEDOM</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+<style>
+:root{
+  --purple:#594F74;--purple2:#635F98;--purple3:#766BA1;--purpleSoft:#F3F1F7;
+  --green:#278356;--greenSoft:#ECF8F0;--gold:#9A751B;--goldSoft:#FFF8E6;
+  --goldBorder:#EAD8A2;--danger:#B6424D;--dangerSoft:#FFF2F4;
+  --bg:#F5F6F9;--text:#292633;--muted:#77717F;--border:#E5E2EA;
+  --shadow:0 10px 34px rgba(31,26,45,.065);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--text);background:var(--bg);font-family:'Sarabun',sans-serif;-webkit-font-smoothing:antialiased}
+button,input{font:inherit}.hidden{display:none!important}
+.page-container{width:100%;max-width:1380px;margin:0 auto;padding:0 24px}
+
+.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(125deg,#463D5D 0%,var(--purple) 43%,#71679A 100%)}
+.hero-inner{min-height:165px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:17px}.brand-icon{width:64px;height:64px;border:1px solid rgba(255,255,255,.25);border-radius:19px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);font-size:24px}
+.eyebrow{color:rgba(255,255,255,.72);font-size:10px;font-weight:700;letter-spacing:2px}.hero h1{margin:5px 0 3px;font-size:30px}.hero p{margin:0;font-size:13px;opacity:.82}
+.hero-badges{display:flex;gap:8px;flex-wrap:wrap}.hero-pill{display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.12);font-size:11px;font-weight:700}
+
+main{padding:24px 0 34px}.notice{padding:15px 17px;display:flex;align-items:center;gap:13px;border:1px solid var(--goldBorder);border-radius:14px;background:var(--goldSoft);color:#73591F}.notice-icon{width:42px;height:42px;min-width:42px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:#F7E5AE;color:#89691B}.notice strong{display:block;font-size:13px}.notice span{display:block;margin-top:2px;font-size:11px;line-height:1.5}
+.card{margin-top:18px;padding:24px;border:1px solid var(--border);border-radius:20px;background:#fff;box-shadow:var(--shadow)}
+.card-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;margin-bottom:21px}.section-label{color:var(--purple2);font-size:10px;font-weight:700;letter-spacing:1.4px}.card-heading h2{margin:4px 0 0;font-size:21px}.card-heading p{margin:4px 0 0;color:var(--muted);font-size:11px;line-height:1.5}.step-badge{min-width:40px;height:40px;padding:0 11px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--purple);background:var(--purpleSoft);font-size:10px;font-weight:700}
+
+.input-grid{display:grid;grid-template-columns:minmax(250px,1.25fr) minmax(200px,.7fr) minmax(240px,.9fr) 180px;gap:15px;align-items:end}.form-group label{display:block;margin-bottom:7px;font-size:12px;font-weight:600}.input-wrap{position:relative}.input-wrap>i,.input-wrap>span{position:absolute;left:14px;top:50%;transform:translateY(-50%);z-index:2;color:#958F9C;pointer-events:none}
+input{width:100%;height:50px;padding:0 14px 0 41px;border:1px solid #DCD8E2;border-radius:12px;background:#fff;color:var(--text);outline:none;font-size:15px;font-weight:600}input:focus{border-color:var(--purple2);box-shadow:0 0 0 4px rgba(99,95,152,.08)}.field-hint{min-height:14px;margin-top:5px;color:var(--muted);font-size:9px}
+.primary-btn{width:100%;min-height:50px;border:0;border-radius:12px;color:#fff;background:linear-gradient(135deg,var(--purple),var(--purple3));font-size:12px;font-weight:700;cursor:pointer;box-shadow:0 7px 18px rgba(89,79,116,.24)}.primary-btn i{margin-right:6px}.error-box{margin-top:13px;padding:11px 13px;border:1px solid #F1C8CE;border-radius:11px;color:var(--danger);background:var(--dangerSoft);font-size:11px}
+
+.summary-grid{margin-top:17px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.summary-item{padding:13px 14px;border:1px solid var(--border);border-radius:12px;background:#FBFAFC}.summary-item span{display:block;color:var(--muted);font-size:9px}.summary-item strong{display:block;margin-top:3px;font-size:15px}.summary-item.interest-highlight{border-color:#D9EBDD;background:#EFF9F2}.summary-item.interest-highlight strong{color:#257347}
+
+.rate-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.mlr-card{display:inline-flex;align-items:center;gap:10px;padding:10px 13px;border:1px solid var(--goldBorder);border-radius:13px;background:var(--goldSoft)}.mlr-card-icon{width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:10px;color:var(--gold);background:rgba(255,255,255,.75)}.mlr-card span{display:block;color:#806928;font-size:9px}.mlr-card strong{display:block;margin-top:1px;color:#4F4019;font-size:15px}.rate-chip{padding:8px 12px;border-radius:999px;background:var(--purpleSoft);color:var(--purple);font-size:10px;font-weight:700}
+.rate-section{margin-top:16px}.rate-section:first-child{margin-top:0}.rate-section-title{display:flex;align-items:center;gap:9px;margin-bottom:9px;padding:10px 12px;border-radius:11px;background:#F5F2F9;color:#51485F;font-size:12px;font-weight:700}.rate-section-title i{color:var(--purple2)}
+.pretty-rate-wrap{overflow:hidden;border:1px solid var(--border);border-radius:15px;background:#fff}.pretty-rate-scroll{width:100%;overflow:auto;-webkit-overflow-scrolling:touch}.pretty-rate-table{width:100%;min-width:850px;border-collapse:separate;border-spacing:0}.pretty-rate-table th{padding:12px 10px;background:linear-gradient(180deg,#F7F5FA,#F1EEF7);color:#504961;text-align:center;font-size:10px;font-weight:700;border-bottom:1px solid #E3DEEB;white-space:nowrap}.pretty-rate-table td{padding:11px 10px;border-bottom:1px solid #F0EDF3;background:#fff;font-size:11px;vertical-align:middle;text-align:center}.pretty-rate-table tbody tr:nth-child(even) td{background:#FCFBFE}.pretty-rate-table tbody tr:hover td{background:#FAF8FD}.pretty-rate-table td.text-left{text-align:left}.no-badge{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 8px;border-radius:9px;background:var(--purpleSoft);color:var(--purple);font-size:10px;font-weight:700}.type-badge{display:inline-flex;align-items:center;justify-content:center;min-width:52px;padding:6px 9px;border-radius:999px;background:#F4F1FA;color:var(--purple);font-size:10px;font-weight:700}.formula-cell{display:inline-block;min-width:115px;padding:8px 9px;border-radius:10px;background:#F3F0F8;color:#57506B;font-weight:700}.actual-cell{display:inline-block;min-width:92px;padding:8px 9px;border-radius:10px;background:#ECF7F0;color:#246545;font-weight:700}.care-cell{display:inline-block;min-width:92px;padding:8px 9px;border-radius:10px;background:#FFF7E6;color:#7A5D19;font-weight:700}.rate-footnote{margin-top:12px;padding:11px 13px;border-radius:11px;background:#F8F7FB;color:#6B6572;font-size:10px;line-height:1.55}
+.swipe-hint{display:none;margin-bottom:9px;color:var(--muted);font-size:9px}.swipe-hint i{margin-right:5px;color:var(--purple2)}
+
+.desktop-schedule{display:block}.table-scroll{width:100%;max-height:580px;overflow:auto;border:1px solid var(--border);border-radius:14px}.payment-table{width:100%;min-width:830px;border-collapse:separate;border-spacing:0}.payment-table thead{position:sticky;top:0;z-index:4}.payment-table th{padding:12px 10px;border-bottom:1px solid #DED9E7;background:var(--purpleSoft);color:#504961;text-align:center;font-size:11px;font-weight:700;white-space:nowrap}.payment-table td{padding:11px 10px;border-bottom:1px solid #F0EDF3;background:#fff;text-align:right;font-size:12px;white-space:nowrap}.payment-table td.month{text-align:center;color:var(--purple);font-weight:700}.payment-table td.payment{color:#237847;font-weight:700}.payment-table tfoot td{padding:12px 10px;border-top:1px solid #DED9E7;background:#FFF8E7;font-size:12px;font-weight:700}.payment-table tfoot td.merge-label{text-align:left;color:#6F5A1F}.payment-table tfoot td.merge-value{text-align:right;color:#237847;font-size:14px}
+.mobile-schedule{display:none}.mobile-month-list{display:grid;gap:10px}.month-card{overflow:hidden;border:1px solid var(--border);border-radius:15px;background:#fff}.month-card-head{padding:11px 13px;display:flex;align-items:center;justify-content:space-between;background:var(--purpleSoft)}.month-number{color:var(--purple);font-size:12px;font-weight:700}.month-payment{color:#237847;font-size:14px;font-weight:700}.month-card-body{padding:12px 13px;display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}.month-metric span{display:block;color:var(--muted);font-size:9px}.month-metric strong{display:block;margin-top:2px;font-size:12px}.mobile-total-box{margin-top:13px;display:grid;grid-template-columns:1fr 1fr;gap:9px}.mobile-total-item{padding:12px;border:1px solid #E3D9B8;border-radius:12px;background:#FFF9EA}.mobile-total-item span{display:block;color:#7A652B;font-size:9px}.mobile-total-item strong{display:block;margin-top:3px;color:#296D48;font-size:13px}
+.empty-state{padding:38px 20px;text-align:center;color:var(--muted)}.empty-state strong{display:block;color:var(--text);font-size:13px}.loading-overlay{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;background:rgba(246,247,250,.9)}.loading-card{width:220px;padding:28px;border:1px solid var(--border);border-radius:18px;background:#fff;text-align:center;box-shadow:var(--shadow)}
+
+@media(max-width:1050px){.input-grid{grid-template-columns:1fr 1fr}.action-cell{grid-column:1/-1}.primary-btn{max-width:320px}.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.page-container{padding:0 12px}.hero-inner{min-height:auto;padding:22px 0 24px;flex-direction:column;align-items:flex-start}.brand-icon{width:52px;height:52px;font-size:20px}.hero h1{font-size:23px}.hero-badges{width:100%}.card{margin-top:14px;padding:16px;border-radius:17px}.card-heading h2{font-size:18px}.input-grid{grid-template-columns:1fr}.action-cell{grid-column:auto}.primary-btn{max-width:none;min-height:52px}.summary-grid{grid-template-columns:1fr 1fr}.rate-toolbar{align-items:stretch;flex-direction:column}.swipe-hint{display:block}.pretty-rate-table{min-width:760px}.desktop-schedule{display:none!important}.mobile-schedule{display:block}.mobile-month-list{max-height:620px;overflow-y:auto}.mobile-total-box{grid-template-columns:1fr}}
+@media(max-width:390px){.summary-grid{grid-template-columns:1fr}}
+</style>
+</head>
+
+<body>
+<header class="hero">
+  <div class="page-container hero-inner">
+    <div class="brand">
+      <div class="brand-icon"><i class="fa-solid fa-chart-line"></i></div>
+      <div><div class="eyebrow">PAYMENT CALCULATOR</div><h1>KKP SME FREEDOM</h1><p>เครื่องคำนวณตารางผ่อนชำระโดยประมาณ</p></div>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-pill"><i class="fa-solid fa-percent"></i> Buffer 1.000%</div>
+      <div class="hero-pill"><i class="fa-solid fa-building-columns"></i> MLR <span id="headerMlr">-</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="page-container">
+  <section class="notice">
+    <div class="notice-icon"><i class="fa-solid fa-circle-info"></i></div>
+    <div><strong>ค่างวดที่แสดงเป็นเพียงการประมาณการ</strong><span>และอาจแตกต่างจากค่างวดจริง ตามเงื่อนไขและหลักเกณฑ์ของธนาคาร</span></div>
+  </section>
+
+  <section class="card">
+    <div class="card-heading"><div><div class="section-label">LOAN INPUT</div><h2>ข้อมูลสำหรับคำนวณ</h2><p>กรอกวงเงิน ระยะเวลา และอัตราดอกเบี้ยที่ลูกค้าได้รับ</p></div><div class="step-badge">01</div></div>
+    <div class="input-grid">
+      <div class="form-group"><label>วงเงินที่ได้รับอนุมัติ (บาท)</label><div class="input-wrap"><span>฿</span><input id="amount" type="text" inputmode="numeric" placeholder="0" oninput="formatMoneyInput(this)"></div></div>
+      <div class="form-group"><label>ระยะเวลาชำระเงินกู้ (เดือน)</label><div class="input-wrap"><i class="fa-regular fa-calendar"></i><input id="term" type="number" min="1" max="84" step="1" placeholder="84"></div><div class="field-hint">สูงสุด 84 เดือน</div></div>
+      <div class="form-group"><label>อัตราดอกเบี้ยที่ลูกค้าได้รับ (%)</label><div class="input-wrap"><i class="fa-solid fa-percent"></i><input id="annualRate" type="number" min="0" max="100" step="0.001" placeholder="0.000" onblur="formatRateInput(this)"></div><div class="field-hint">รองรับทศนิยม 3 ตำแหน่ง</div></div>
+      <div class="action-cell"><button class="primary-btn" type="button" onclick="calculateSchedule()"><i class="fa-solid fa-calculator"></i>คำนวณค่างวด</button></div>
+    </div>
+    <div id="errorBox" class="error-box hidden"></div>
+    <div id="summaryGrid" class="summary-grid hidden">
+      <div class="summary-item"><span>ค่างวดประมาณการ</span><strong id="summaryPayment">-</strong></div>
+      <div class="summary-item"><span>วงเงิน</span><strong id="summaryAmount">-</strong></div>
+      <div class="summary-item"><span>อัตราดอกเบี้ย</span><strong id="summaryRate">-</strong></div>
+      <div class="summary-item"><span>ระยะเวลา</span><strong id="summaryTerm">-</strong></div>
+      <div class="summary-item interest-highlight"><span>รวมดอกเบี้ยทั้งหมด</span><strong id="summaryTotalInterest">-</strong></div>
+      <div class="summary-item interest-highlight"><span>เฉลี่ยดอกเบี้ยต่อเดือน</span><strong id="summaryAvgInterest">-</strong></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-heading"><div><div class="section-label">INTEREST RATE</div><h2>อัตราดอกเบี้ยที่ลูกค้าได้รับ</h2><p>รองรับตารางใหม่แบบหลายกลุ่ม และ Single rate</p></div><div class="step-badge">RATE</div></div>
+    <div class="rate-toolbar">
+      <div class="mlr-card"><div class="mlr-card-icon"><i class="fa-solid fa-building-columns"></i></div><div><span>MLR ปัจจุบัน</span><strong id="inlineMlr">-</strong></div></div>
+      <div id="rateCount" class="rate-chip hidden"></div>
+    </div>
+    <div class="swipe-hint"><i class="fa-solid fa-hand-pointer"></i>เลื่อนซ้าย-ขวาเพื่อดูข้อมูลทั้งหมด</div>
+    <div id="rateSectionsContainer"><div class="empty-state"><strong>กำลังโหลดข้อมูลอัตราดอกเบี้ย</strong></div></div>
+    <div id="rateFootnote" class="rate-footnote hidden"></div>
+  </section>
+
+  <section class="card schedule-card">
+    <div class="card-heading"><div><div class="section-label">PAYMENT SCHEDULE</div><h2>ตารางแสดงการผ่อนโดยประมาณ</h2><p>แสดงค่างวด เงินต้น Buffer ดอกเบี้ย และยอดคงเหลือรายเดือน</p></div><div class="step-badge">02</div></div>
+    <div id="emptyState" class="empty-state"><strong>ยังไม่มีผลคำนวณ</strong></div>
+    <div id="desktopSchedule" class="desktop-schedule hidden"><div class="table-scroll"><table class="payment-table"><thead><tr><th>เดือนที่</th><th>ยอดผ่อนชำระต่อเดือน</th><th>ส่วนของเงินต้น</th><th>Buffer</th><th>ดอกเบี้ย</th><th>ยอดคงเหลือ</th></tr></thead><tbody id="scheduleBody"></tbody><tfoot id="scheduleFoot"></tfoot></table></div></div>
+    <div id="mobileSchedule" class="mobile-schedule hidden"><div id="mobileMonthList" class="mobile-month-list"></div><div id="mobileTotalBox" class="mobile-total-box"></div></div>
+  </section>
+</main>
+
+<script>
+const BUFFER_PERCENT = 1.000;
+let APP_DATA = {mlrPercent:0, bufferPercent:BUFFER_PERCENT, maxTermMonths:84, rateSections:[], rateNotes:[]};
+
+
+/* ============================================================
+   GITHUB PAGES -> APPS SCRIPT
+   ============================================================ */
+
+/*
+ * ใส่ NORMAL Apps Script Web App URL ที่ลงท้าย /exec
+ */
+const APPS_SCRIPT_API_URL =
+  'https://script.google.com/macros/s/AKfycbwmBlGIIJ_HMcMSloYrCKF3-2g18fAwAni41jxi86EaqfHEYt7x3j87ly8MLHrmddyu/exec';
+
+
+function apiCall(
+  action,
+  params
+) {
+
+  params =
+    params || {};
+
+
+  if (
+    !APPS_SCRIPT_API_URL ||
+    APPS_SCRIPT_API_URL.indexOf(
+      'PASTE_NORMAL_'
+    ) === 0
+  ) {
+
+    return Promise.reject(
+      new Error(
+        'กรุณาใส่ NORMAL Apps Script /exec URL ใน APPS_SCRIPT_API_URL'
+      )
+    );
+
+  }
+
+
+  return new Promise(
+    function(
+      resolve,
+      reject
+    ) {
+
+      const callbackName =
+        '__normal_' +
+        Date.now() +
+        '_' +
+        Math.floor(
+          Math.random() *
+          1000000
+        );
+
+
+      const script =
+        document.createElement(
+          'script'
+        );
+
+
+      const timer =
+        setTimeout(
+          function() {
+
+            cleanup();
+
+            reject(
+              new Error(
+                'เชื่อมต่อ Apps Script ไม่สำเร็จ'
+              )
+            );
+
+          },
+          20000
+        );
+
+
+      function cleanup() {
+
+        clearTimeout(
+          timer
+        );
+
+
+        try {
+          delete window[
+            callbackName
+          ];
+        }
+        catch (e) {
+          window[
+            callbackName
+          ] =
+            undefined;
+        }
+
+
+        if (
+          script.parentNode
+        ) {
+          script.parentNode
+            .removeChild(
+              script
+            );
+        }
+
+      }
+
+
+      window[
+        callbackName
+      ] =
+        function(
+          payload
+        ) {
+
+          cleanup();
+
+
+          if (
+            payload &&
+            payload.ok
+          ) {
+
+            resolve(
+              payload.data
+            );
+
+          }
+          else {
+
+            reject(
+              new Error(
+                payload &&
+                payload.error
+                  ? payload.error
+                  : 'เกิดข้อผิดพลาดจาก Apps Script'
+              )
+            );
+
+          }
+
+        };
+
+
+      const query =
+        new URLSearchParams();
+
+
+      query.set(
+        'api',
+        action
+      );
+
+
+      query.set(
+        'callback',
+        callbackName
+      );
+
+
+      Object.keys(
+        params
+      ).forEach(
+        function(key) {
+
+          query.set(
+            key,
+            params[key]
+          );
+
+        }
+      );
+
+
+      script.src =
+        APPS_SCRIPT_API_URL +
+        (
+          APPS_SCRIPT_API_URL
+            .indexOf('?') === -1
+              ? '?'
+              : '&'
+        ) +
+        query.toString();
+
+
+      script.async =
+        true;
+
+
+      script.onerror =
+        function() {
+
+          cleanup();
+
+          reject(
+            new Error(
+              'โหลดข้อมูลจาก Apps Script ไม่สำเร็จ'
+            )
+          );
+
+        };
+
+
+      document.body
+        .appendChild(
+          script
+        );
+
+    }
+  );
+
+}
+
+window.addEventListener('DOMContentLoaded', function(){bindInputEvents();loadAppData();});
+
+function loadAppData(){
+
+  apiCall(
+    'pageData'
+  )
+    .then(
+      function(data){
+
+        APP_DATA =
+          Object.assign(
+            APP_DATA,
+            data || {}
+          );
+
+
+        const mlrText =
+          formatPercent(
+            APP_DATA.mlrPercent,
+            3
+          );
+
+
+        document
+          .getElementById(
+            'headerMlr'
+          )
+          .textContent =
+            mlrText;
+
+
+        document
+          .getElementById(
+            'inlineMlr'
+          )
+          .textContent =
+            mlrText;
+
+
+        document
+          .getElementById(
+            'term'
+          )
+          .max =
+            APP_DATA.maxTermMonths ||
+            84;
+
+
+        renderRateSections(
+          APP_DATA.rateSections ||
+          []
+        );
+
+
+        renderRateNotes(
+          APP_DATA.rateNotes ||
+          []
+        );
+
+      }
+    )
+    .catch(
+      function(error){
+
+        document
+          .getElementById(
+            'rateSectionsContainer'
+          )
+          .innerHTML =
+            '<div class="empty-state"><strong>ไม่สามารถโหลดข้อมูลอัตราดอกเบี้ยได้</strong><div>' +
+            escapeHtml(
+              error &&
+              error.message
+                ? error.message
+                : String(error)
+            ) +
+            '</div></div>';
+
+
+        document
+          .getElementById(
+            'headerMlr'
+          )
+          .textContent =
+            '-';
+
+
+        document
+          .getElementById(
+            'inlineMlr'
+          )
+          .textContent =
+            '-';
+
+      }
+    );
+
+}
+
+
+function renderRateSections(sections){
+  const container = document.getElementById('rateSectionsContainer');
+  if(!Array.isArray(sections) || !sections.length){
+    container.innerHTML='<div class="empty-state"><strong>ไม่พบรายการอัตราดอกเบี้ย</strong></div>';
+    return;
+  }
+
+  let totalRows = 0;
+  container.innerHTML = sections.map(function(section, sectionIndex){
+    totalRows += section.rows.length;
+    const meta = classifyHeaders(section.headers);
+    const head = section.headers.map(function(h,i){return '<th>'+escapeHtml(h)+'</th>';}).join('');
+    const body = section.rows.map(function(row){
+      return '<tr>'+row.map(function(value,i){
+        const cls = meta[i] || '';
+        let content = escapeHtml(value || '-');
+        if(cls==='no') content='<span class="no-badge">'+content+'</span>';
+        if(cls==='type') content='<span class="type-badge">'+content+'</span>';
+        if(cls==='formula') content='<span class="formula-cell">'+content+'</span>';
+        if(cls==='actual') content='<span class="actual-cell">'+content+'</span>';
+        if(cls==='care') content='<span class="care-cell">'+content+'</span>';
+        return '<td class="'+(cls==='note'?'text-left':'')+'">'+content+'</td>';
+      }).join('')+'</tr>';
+    }).join('');
+
+    return '<div class="rate-section">'+
+      '<div class="rate-section-title"><i class="fa-solid fa-layer-group"></i>'+escapeHtml(section.title)+'</div>'+
+      '<div class="pretty-rate-wrap"><div class="pretty-rate-scroll"><table class="pretty-rate-table"><thead><tr>'+head+'</tr></thead><tbody>'+body+'</tbody></table></div></div>'+
+      '</div>';
+  }).join('');
+
+  const chip=document.getElementById('rateCount');
+  chip.textContent=sections.length+' ตาราง • '+totalRows+' เงื่อนไข';
+  chip.classList.remove('hidden');
+}
+
+function classifyHeaders(headers){
+  const normalized=headers.map(normalizeHeader);
+  const rateIndexes=[];
+  normalized.forEach(function(h,i){if(h.indexOf('อัตราดอกเบี้ยประกาศ')!==-1) rateIndexes.push(i);});
+  return normalized.map(function(h,i){
+    if(h==='no'||h==='no.'||h==='ลำดับ') return 'no';
+    if(h==='type') return 'type';
+    if(h.indexOf('sme care')!==-1) return 'care';
+    if(rateIndexes[0]===i) return 'formula';
+    if(rateIndexes[1]===i) return 'actual';
+    if(h.indexOf('หมายเหตุ')!==-1) return 'note';
+    return '';
+  });
+}
+
+function renderRateNotes(notes){
+  const box=document.getElementById('rateFootnote');
+  if(!Array.isArray(notes)||!notes.length){box.classList.add('hidden');return;}
+  box.innerHTML='<i class="fa-solid fa-circle-info"></i> '+escapeHtml(notes.join(' • '));
+  box.classList.remove('hidden');
+}
+
+function normalizeHeader(v){return String(v||'').trim().toLowerCase().replace(/\s+/g,' ');}
+
+function bindInputEvents(){['amount','term','annualRate'].forEach(function(id){document.getElementById(id).addEventListener('keydown',function(e){if(e.key==='Enter')calculateSchedule();});});}
+function formatMoneyInput(input){const digits=String(input.value||'').replace(/[^\d]/g,'');input.value=digits?Number(digits).toLocaleString('en-US'):'';}
+function formatRateInput(input){const v=Number(input.value);if(Number.isFinite(v)&&input.value!=='')input.value=v.toFixed(3);}
+
+function calculateSchedule(){
+  hideError();
+  const amount=parseMoney(document.getElementById('amount').value);
+  const term=Number(document.getElementById('term').value);
+  const annualRate=Number(document.getElementById('annualRate').value);
+  const maxTerm=Number(APP_DATA.maxTermMonths||84);
+  if(!(amount>0))return showError('กรุณาระบุวงเงินที่ได้รับอนุมัติ');
+  if(!Number.isInteger(term)||term<1||term>maxTerm)return showError('กรุณาระบุระยะเวลาระหว่าง 1 - '+maxTerm+' เดือน');
+  if(!Number.isFinite(annualRate)||annualRate<0||annualRate>100)return showError('กรุณาระบุอัตราดอกเบี้ยที่ลูกค้าได้รับให้ถูกต้อง');
+
+  let payment=calculatePMT((annualRate+BUFFER_PERCENT)/100/12,term,amount);
+  payment=Math.ceil(payment/100)*100;
+  const rows=buildSchedule(amount,term,annualRate,BUFFER_PERCENT,payment);
+  const calcRows=rows.filter(function(r){return !r.isStart;});
+  const totalInterest=calcRows.reduce(function(s,r){return s+(Number(r.interest)||0);},0);
+  const avgInterest=calcRows.length?totalInterest/calcRows.length:0;
+
+  renderDesktopSchedule(rows,totalInterest,avgInterest);
+  renderMobileSchedule(calcRows,totalInterest,avgInterest);
+  renderSummary({amount:amount,term:term,annualRate:annualRate,payment:payment,totalInterest:totalInterest,avgInterest:avgInterest});
+  document.getElementById('emptyState').classList.add('hidden');
+  document.getElementById('desktopSchedule').classList.remove('hidden');
+  document.getElementById('mobileSchedule').classList.remove('hidden');
+}
+
+function calculatePMT(monthlyRate,periods,presentValue){if(monthlyRate===0)return presentValue/periods;const f=Math.pow(1+monthlyRate,periods);return monthlyRate*presentValue*f/(f-1);}
+
+function buildSchedule(openingAmount,term,annualRate,bufferPercent,standardPayment){
+  const rows=[];let amount=openingAmount;let balance=openingAmount;
+  rows.push({month:0,payment:null,principal:null,buffer:null,interest:null,balance:openingAmount,isStart:true});
+  for(let month=1;month<=term;month++){
+    let payment=standardPayment,interest,buffer,principal;
+    if(balance<payment){
+      payment=Math.ceil(balance+(balance*(annualRate/100)/12));
+      buffer=balance*(bufferPercent/100)/12;interest=balance*(annualRate/100)/12;principal=payment-interest-buffer;amount=0;balance=0;
+    }else{
+      interest=amount*(annualRate/100)/12;buffer=amount*(bufferPercent/100)/12;principal=payment-interest-buffer;amount=amount-principal-buffer;balance=amount;
+    }
+    rows.push({month:month,payment:payment,principal:principal,buffer:buffer,interest:interest,balance:amount,isStart:false});
+  }
+  return rows;
+}
+
+function renderDesktopSchedule(rows,totalInterest,avgInterest){
+  document.getElementById('scheduleBody').innerHTML=rows.map(function(r){return '<tr><td class="month">'+r.month+'</td><td class="payment">'+(r.payment===null?'':formatMoney(r.payment))+'</td><td>'+(r.principal===null?'':formatMoney(Math.round(r.principal)))+'</td><td>'+(r.buffer===null?'':formatMoney(Math.round(r.buffer)))+'</td><td>'+(r.interest===null?'':formatMoney(Math.round(r.interest)))+'</td><td>'+formatMoney(Math.round(r.balance))+'</td></tr>';}).join('');
+  document.getElementById('scheduleFoot').innerHTML='<tr><td colspan="5" class="merge-label">รวมดอกเบี้ยทั้งหมด</td><td class="merge-value">'+formatMoney(Math.round(totalInterest))+'</td></tr><tr><td colspan="5" class="merge-label">เฉลี่ยดอกเบี้ยต่อเดือน</td><td class="merge-value">'+formatMoney(Math.round(avgInterest))+'</td></tr>';
+}
+
+function renderMobileSchedule(rows,totalInterest,avgInterest){
+  document.getElementById('mobileMonthList').innerHTML=rows.map(function(r){return '<article class="month-card"><div class="month-card-head"><div class="month-number">เดือนที่ '+r.month+'</div><div class="month-payment">'+formatMoney(Math.round(r.payment))+' บาท</div></div><div class="month-card-body"><div class="month-metric"><span>เงินต้น</span><strong>'+formatMoney(Math.round(r.principal))+'</strong></div><div class="month-metric"><span>ดอกเบี้ย</span><strong>'+formatMoney(Math.round(r.interest))+'</strong></div><div class="month-metric"><span>Buffer</span><strong>'+formatMoney(Math.round(r.buffer))+'</strong></div><div class="month-metric"><span>ยอดคงเหลือ</span><strong>'+formatMoney(Math.round(r.balance))+'</strong></div></div></article>';}).join('');
+  document.getElementById('mobileTotalBox').innerHTML='<div class="mobile-total-item"><span>รวมดอกเบี้ยทั้งหมด</span><strong>'+formatMoney(Math.round(totalInterest))+' บาท</strong></div><div class="mobile-total-item"><span>เฉลี่ยดอกเบี้ยต่อเดือน</span><strong>'+formatMoney(Math.round(avgInterest))+' บาท</strong></div>';
+}
+
+function renderSummary(d){document.getElementById('summaryPayment').textContent=formatMoney(d.payment)+' บาท';document.getElementById('summaryAmount').textContent=formatMoney(d.amount)+' บาท';document.getElementById('summaryRate').textContent=formatPercent(d.annualRate,3);document.getElementById('summaryTerm').textContent=d.term+' เดือน';document.getElementById('summaryTotalInterest').textContent=formatMoney(Math.round(d.totalInterest))+' บาท';document.getElementById('summaryAvgInterest').textContent=formatMoney(Math.round(d.avgInterest))+' บาท';document.getElementById('summaryGrid').classList.remove('hidden');}
+function parseMoney(v){const n=Number(String(v||'').replace(/,/g,'').replace(/[^\d.-]/g,''));return Number.isFinite(n)?n:0;}
+function formatMoney(v){return new Intl.NumberFormat('en-US',{maximumFractionDigits:0}).format(Number(v||0));}
+function formatPercent(v,digits){return Number(v||0).toFixed(digits==null?3:digits)+'%';}
+function showError(m){const b=document.getElementById('errorBox');b.textContent=m;b.classList.remove('hidden');}
+function hideError(){document.getElementById('errorBox').classList.add('hidden');}
+function escapeHtml(v){return String(v==null?'':v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');}
+</script>
+</body>
+</html>
